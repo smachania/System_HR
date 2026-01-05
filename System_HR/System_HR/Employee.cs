@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System_hr.System_HR;
 
 namespace System_hr.System_HR
 {
@@ -16,36 +17,37 @@ namespace System_hr.System_HR
     public enum EnumPlec { K, M };
     public class Employee
     {
-        int id;
-        string name;
-        string surname;
-        EnumPlec plec;
         string pesel;
-        DateTime hireDate;
-        bool isActive;
+
         static int counter;
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public EnumPlec Plec { get; set; }
-        public string Pesel 
-        { 
-            get => pesel; 
-            set {
-                Regex r = new Regex(@"\d{11}$"); // przy pomocy regex sprawdzamy poprawność wpisanego peselu
+        public int Id { get; private set; } //zmiana na private, aby nikt z zewnatrz nie mogl tego zmienic
+        public string Name { get; private set; }
+        public string Surname { get; private set; }
+        public EnumPlec Plec { get; private set; }
+        public string Pesel //hermetyzacja
+        {
+            get => pesel;
+            set
+            {
+                if (string.IsNullOrWhiteSpace(value))//walidacja ull
+                {
+                    throw new WrongPeselException("Pesel nie może być pusty"); //dzięki temu mamy wieększą walidację oraz czytelniejsze komunikaty
+                }
+                Regex r = new Regex(@"^\d{11}$"); // przy pomocy regex sprawdzamy poprawność wpisanego peselu
                 if (r.IsMatch(value))
                 {
                     pesel = value;
                 }
-                else
+                else 
                 {
                     throw new WrongPeselException("Pesel niepoprawny");
                 }
-            } 
+            }
         }
-        public DateTime HireDate { get; set; }
+        public DateTime HireDate { get; private set; }
         public bool IsActive { get; private set; }
+        public Contract? Contract { get; private set; }//pytajnik oznacza ze przy zatrudnieniu pracownika moze on nie mieć jeszcze gotowej umowy i zatwierdzonej, tzn. umowa może być null
 
         static Employee()
         {
@@ -61,14 +63,26 @@ namespace System_hr.System_HR
             HireDate = hireDate;
             IsActive = true; //po przyjęciu nowego pracownika zakłamy, że jest aktywny
         }
+
         public void Terminate()
         {
             IsActive = false;
-            //Contract?.EndContract(DateTime.Now); // End Contract dodamy te metode w Contract
+            Contract?.EndContract(DateTime.Now); 
         }
-        //public void ChangeContract(Contract newContract)
-        //{
-        //    Contract = newContract;
-        //}
+        public void ChangeContract(Contract newContract)
+        {
+            if (newContract == null) return; // jeśli ktoś prześle null to nic nie rób
+            Contract?.EndContract(DateTime.Now); //sprawdzamy czy obecnie istnieje jakis kontrakt i jesli tak to go konczymy
+            Contract = newContract;
+        }
+
+        //wyświetlanie danych pracownika w konsoli
+        public override string ToString()
+        {
+            string status = IsActive ? "Aktywny" : "Zwolniony";
+            string contractInfo = Contract != null ? Contract.ToString() : "Brak umowy";
+            return $"[ID: {Id}] {Name} {Surname} | PESEL: {Pesel} | Płeć: {Plec} | Status: {status} | Umowa: {contractInfo}";
+        }
     }
 }
+    
