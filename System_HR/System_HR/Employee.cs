@@ -61,7 +61,7 @@ namespace System_hr.System_HR
             Plec = plec;
             Pesel = pesel;
             HireDate = hireDate;
-            IsActive = true; //po przyjęciu nowego pracownika zakłamy, że jest aktywny
+            IsActive = true; //po przyjęciu nowego pracownika zakładmy, że jest aktywny
         }
 
         public void Terminate()
