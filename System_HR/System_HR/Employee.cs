@@ -15,7 +15,7 @@ namespace System_hr.System_HR
         public WrongPeselException(string message) : base(message) { }
     }
     public enum EnumPlec { K, M };
-    public class Employee
+    public class Employee : IIdentifiable 
     {
         string pesel;
 
