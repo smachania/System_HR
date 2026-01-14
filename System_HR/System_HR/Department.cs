@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System_hr.System_HR;
 
 namespace System_hr
 {
-    class Department
+    public class Department
     {
         string name;
         Employee manager;
         List<Employee> employees;
 
+        [JsonInclude]
         public string Name { get; private set; }
+        [JsonInclude]
         public Employee Manager { get; private set; }
-        public List<Employee> Employess { get; }
+        [JsonInclude]
+        public List<Employee> Employees { get; }
 
         public Department(string name)
         {

@@ -9,6 +9,7 @@ internal class Program
     }
     static void EmployeeTest()
     {
+        Company comp = new Company("IT Company");
         Employee e1 = new("Robert", "Lewandowski", EnumPlec.M, "82010112345", new DateTime(2015, 5, 10));
         Employee e2 = new("Anna", "Zielińska", EnumPlec.K, "88051255667", new DateTime(2018, 3, 20));
         Employee e3 = new("Maria", "Mazur", EnumPlec.K, "03251211223", new DateTime(2023, 12, 01));
@@ -35,24 +36,30 @@ internal class Program
         it.SetManager(e1);
         it.AddEmployee(e2);
         it.AddEmployee(e3);
+        comp.Departments.Add(it);
         //Console.WriteLine(e2);
         //Console.WriteLine($"Pensja netto: {e2.Contract.CalculateSalary()}");
         Department marketing = new Department("Marketing & Sales");
         marketing.SetManager(e4);
         marketing.AddEmployee(e5);
+        comp.Departments.Add(marketing);
 
         Department admin = new Department("Administration");
         admin.SetManager(e6);
         admin.AddEmployee(e7);
+        comp.Departments.Add(admin);
 
         Department services = new Department("Customer Service");
         services.SetManager(e8);
         services.AddEmployee(e9);
+        comp.Departments.Add(services);
 
         Console.WriteLine(it);
         Console.WriteLine($"Salary of 1 employee: {((B2BContract)e1.Contract).CalculateTotalSalary()}");//rzutowanie typów dla B2B
         Console.WriteLine($"Salary of 2 employee: {((B2BContract)e2.Contract).CalculateTotalSalary()}");
         Console.WriteLine($"Salary of 3 employee: {e3.Contract.CalculateSalary()}");
+
+        comp.SaveToJSON("company.json");
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace System_hr.System_HR
 {
@@ -7,13 +8,15 @@ namespace System_hr.System_HR
 		string universityName;
 		int internshipMonths;
 		bool isPaid;
-        
-        
+
+
+        [JsonInclude]
         public string UniversityName { get; private set; }
+        [JsonInclude]
         public int InternshipMonths { get; private set; }
+        [JsonInclude]
         public bool IsPaid { get; private set; }
        
-        
         public InternshipContract(DateTime startDate, string universityName, 
             int internshipMonths, bool isPaid)
             : base(startDate, isPaid ? 1500m : 0m) // Przykładowa stawka bazowa dla płatnych staży

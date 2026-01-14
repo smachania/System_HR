@@ -27,7 +27,6 @@ namespace System_hr.System_HR
             get => overtimeHours;
             set => overtimeHours = value;
         }
-
         public EmployeeContract(DateTime startDate, decimal baseSalary, decimal bonus = 0, int overtimeHours = 0)
             : base(startDate, baseSalary)
         {
