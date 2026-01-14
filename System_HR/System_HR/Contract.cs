@@ -11,7 +11,6 @@ namespace System_hr.System_HR
         DateTime startDate;
         DateTime endDate;
         decimal baseSalary;
-
         public DateTime StartDate { get; protected set; }
         public DateTime? EndDate { get; protected set; }
         public decimal BaseSalary { get; protected set; }
