@@ -33,5 +33,9 @@ namespace System_hr.System_HR
         {
             EndDate = endDate;
         }
+        public override string ToString()
+        {
+            return $"{GetContractType()}";
+        }
     }
 }

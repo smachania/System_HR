@@ -47,7 +47,7 @@ namespace System_hr.System_HR
         }
         public DateTime HireDate { get; private set; }
         public bool IsActive { get; private set; }
-        public Contract? Contract { get; private set; }//pytajnik oznacza ze przy zatrudnieniu pracownika moze on nie mieć jeszcze gotowej umowy i zatwierdzonej, tzn. umowa może być null
+        public Contract Contract { get; private set; }
 
         static Employee()
         {
