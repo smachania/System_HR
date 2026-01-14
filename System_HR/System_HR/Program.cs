@@ -50,6 +50,9 @@ internal class Program
         services.AddEmployee(e9);
 
         Console.WriteLine(it);
+        Console.WriteLine($"Salary of 1 employee: {((B2BContract)e1.Contract).CalculateTotalSalary()}");//rzutowanie typów dla B2B
+        Console.WriteLine($"Salary of 2 employee: {((B2BContract)e2.Contract).CalculateTotalSalary()}");
+        Console.WriteLine($"Salary of 3 employee: {e3.Contract.CalculateSalary()}");
 
     }
 }
