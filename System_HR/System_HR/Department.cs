@@ -59,10 +59,14 @@ namespace System_hr
         {
             return employees.Count();
         }
+        public decimal TotalDepartmentSalary()
+        {
+            return (decimal)employees.Sum(e => e.Contract.CalculateSalary());
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Department name: {Name} | Employees Number: {NumberOfEmployeesByDepart()}");
+            sb.AppendLine($"Department name: {Name} | Employees Number: {NumberOfEmployeesByDepart()} | Total Department Salary: {TotalDepartmentSalary()}");
             foreach(var employ in employees)
             {
                 sb.AppendLine(employ.ToString());
