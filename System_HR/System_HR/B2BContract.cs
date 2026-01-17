@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 
 namespace System_hr.System_HR
@@ -9,8 +10,11 @@ namespace System_hr.System_HR
         int monthlyHours;
         decimal vatRate = 0.23m; //stawka VAT domyślna 23%
 
+        [JsonInclude]
         public decimal HourlyRate { get; private set; }
+        [JsonInclude]
         public int MonthlyHours { get; private set; }
+        [JsonInclude]
         public decimal VatRate { get; private set; } 
 
 
