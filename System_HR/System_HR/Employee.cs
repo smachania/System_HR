@@ -17,7 +17,7 @@ namespace System_hr.System_HR
         public WrongPeselException(string message) : base(message) { }
     }
     public enum EnumPlec { K, M };
-    public class Employee : IIdentifiable 
+    public class Employee:IEquatable<Employee>
     {
         string pesel;
 
@@ -70,7 +70,7 @@ namespace System_hr.System_HR
             Plec = plec;
             Pesel = pesel;
             HireDate = hireDate;
-            IsActive = true; //po przyjęciu nowego pracownika zakłamy, że jest aktywny
+            IsActive = true; //po przyjęciu nowego pracownika zakładmy, że jest aktywny
         }
 
         public void Terminate()
@@ -84,6 +84,19 @@ namespace System_hr.System_HR
             Contract?.EndContract(DateTime.Now); //sprawdzamy czy obecnie istnieje jakis kontrakt i jesli tak to go konczymy
             Contract = newContract;
         }
+        public bool Equals(Employee? other)
+        {
+            if (other is null) return false;
+            return this.Pesel == other.Pesel;
+        }
+        public override bool Equals(object? obj)
+        {
+            return Equals(obj as Employee);
+        }
+        public override int GetHashCode()
+        {
+            return Pesel.GetHashCode();
+        }
 
         //wyświetlanie danych pracownika w konsoli
         public override string ToString()
@@ -92,6 +105,8 @@ namespace System_hr.System_HR
             string contractInfo = Contract != null ? Contract.ToString() : "Brak umowy";
             return $"[ID: {Id}] {Name} {Surname} | PESEL: {Pesel} | Płeć: {Plec} | Status: {status} | Umowa: {contractInfo}";
         }
+
+
     }
 }
     
