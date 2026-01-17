@@ -15,7 +15,7 @@ namespace System_hr.System_HR
         public WrongPeselException(string message) : base(message) { }
     }
     public enum EnumPlec { K, M };
-    public class Employee : IIdentifiable 
+    public class Employee : IIdentifiable, IComparable<Employee>
     {
         string pesel;
 
@@ -82,6 +82,18 @@ namespace System_hr.System_HR
             string status = IsActive ? "Aktywny" : "Zwolniony";
             string contractInfo = Contract != null ? Contract.ToString() : "Brak umowy";
             return $"[ID: {Id}] {Name} {Surname} | PESEL: {Pesel} | Płeć: {Plec} | Status: {status} | Umowa: {contractInfo}";
+        }
+
+
+        //sortowanie po nazwisku
+        public int CompareTo(Employee other)
+        {
+            if(other == null) return 1;
+            int surnamecompare = Surname.CompareTo(other.Surname);
+            if(surnamecompare != 0) 
+                return  surnamecompare; 
+            return Name.CompareTo(other.Name);
+
         }
     }
 }
