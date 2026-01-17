@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System_hr.System_HR;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace System_hr.System_HR
 {
@@ -20,11 +22,15 @@ namespace System_hr.System_HR
         string pesel;
 
         static int counter;
-
+        [JsonInclude]
         public int Id { get; private set; } //zmiana na private, aby nikt z zewnatrz nie mogl tego zmienic
+        [JsonInclude]
         public string Name { get; private set; }
+        [JsonInclude]
         public string Surname { get; private set; }
+        [JsonInclude]
         public EnumPlec Plec { get; private set; }
+        [JsonInclude]
         public string Pesel //hermetyzacja
         {
             get => pesel;
@@ -45,9 +51,12 @@ namespace System_hr.System_HR
                 }
             }
         }
+        [JsonInclude]
         public DateTime HireDate { get; private set; }
+        [JsonInclude]
         public bool IsActive { get; private set; }
-        public Contract? Contract { get; private set; }//pytajnik oznacza ze przy zatrudnieniu pracownika moze on nie mieć jeszcze gotowej umowy i zatwierdzonej, tzn. umowa może być null
+        [JsonInclude]
+        public Contract Contract { get; private set; }
 
         static Employee()
         {
