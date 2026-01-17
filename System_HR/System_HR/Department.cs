@@ -11,33 +11,30 @@ namespace System_hr
 {
     public class Department
     {
-        string name;
-        Employee manager;
-        List<Employee> employees;
 
         [JsonInclude]
         public string Name { get; private set; }
         [JsonInclude]
         public Employee Manager { get; private set; }
         [JsonInclude]
-        public List<Employee> Employees { get; }
+        public List<Employee> Employees { get; private set; }
 
         public Department(string name)
         {
             this.Name = name;
-            employees = new List<Employee>();
+            Employees = new List<Employee>();
         }
         public void AddEmployee(Employee emp)
         {
             if (emp is null) return;
-            foreach(var e in employees)
+            foreach(var e in Employees)
             {
                 if (e.Equals(emp)) //wykorzystanie funkcji Equals
                 {
                     return;
                 }
             }
-            employees.Add(emp);
+            Employees.Add(emp);
         }
         public void SetManager(Employee manager)
         {
@@ -52,7 +49,7 @@ namespace System_hr
         public bool RemoveEmployee(Employee emp)
         {
             if (emp is null) return false;
-            bool removed = employees.Remove(emp);
+            bool removed = Employees.Remove(emp);
             if(Manager!= null && Manager.Equals(emp))
             {
                 Manager = null;
@@ -61,17 +58,17 @@ namespace System_hr
         }
         public int NumberOfEmployeesByDepart()
         {
-            return employees.Count();
+            return Employees.Count();
         }
         public decimal TotalDepartmentSalary()
         {
-            return (decimal)employees.Sum(e => e.Contract.CalculateSalary());
+            return (decimal)Employees.Sum(e => e.Contract.CalculateSalary());
         }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Department name: {Name} | Employees Number: {NumberOfEmployeesByDepart()} | Total Department Salary: {TotalDepartmentSalary()}");
-            foreach(var employ in employees)
+            foreach(var employ in Employees)
             {
                 sb.AppendLine(employ.ToString());
             }

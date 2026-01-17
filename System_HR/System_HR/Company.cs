@@ -10,8 +10,6 @@ namespace System_hr.System_HR
 {
     public class Company
     {
-        string name;
-        List<Department> departments;
 
         public string Name { get; set; }
         public List<Department> Departments { get; set; }
