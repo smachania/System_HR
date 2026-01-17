@@ -45,5 +45,13 @@ namespace System_hr.System_HR
         {
             return "B2B Contract";
         }
+
+        public override object Clone()
+        {
+            return new B2BContract(this.StartDate, this.HourlyRate, this.MonthlyHours, this.VatRate)
+            {
+                EndDate = this.EndDate
+            };
+        }
     }
 }

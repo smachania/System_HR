@@ -47,6 +47,12 @@ namespace System_hr.System_HR
             return "Employee Contract";
         }
 
-      
+        public override object Clone()
+        {
+            return new EmployeeContract(this.StartDate, this.BaseSalary, this.Bonus, this.OvertimeHours)
+            {
+                EndDate = this.EndDate                 // kopia daty zakończenia, jeśli istnieje
+            };
+        }
     }
 }

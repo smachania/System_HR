@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace System_hr.System_HR
 {
-    public abstract class Contract
+    public abstract class Contract : ICloneable
     {
         DateTime startDate;
         DateTime endDate;
@@ -23,6 +23,8 @@ namespace System_hr.System_HR
         }
 
         public abstract decimal CalculateSalary();
+
+        public abstract object Clone();
 
         public virtual string GetContractType()
         {
