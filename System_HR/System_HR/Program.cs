@@ -5,7 +5,8 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        EmployeeTest();
+        //EmployeeTest();
+        ReadFileTest();
     }
     static void EmployeeTest()
     {
@@ -61,5 +62,12 @@ internal class Program
 
         comp.SaveToJSON("company.json");
 
+    }
+    static void ReadFileTest()
+    {
+        string path = "company.json";
+        Company loadedCompany = Company.ReadFromJson(path);
+        Console.WriteLine($"Name of the company: {loadedCompany.Name}");
+        Console.WriteLine($"Number of departments: {loadedCompany.Departments.Count}");
     }
 }
