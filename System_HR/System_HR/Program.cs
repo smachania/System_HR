@@ -69,5 +69,7 @@ internal class Program
         Company loadedCompany = Company.ReadFromJson(path);
         Console.WriteLine($"Name of the company: {loadedCompany.Name}");
         Console.WriteLine($"Number of departments: {loadedCompany.Departments.Count}");
+        string check = loadedCompany.GetTotalCostsMadeByDepartment();
+        Console.WriteLine(check);
     }
 }
