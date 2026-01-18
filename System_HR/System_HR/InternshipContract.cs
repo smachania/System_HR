@@ -37,5 +37,13 @@ namespace System_hr.System_HR
         {
             return "Internship Contract";
         }
+
+        public override object Clone()
+        {
+            return new InternshipContract(this.StartDate, this.UniversityName, this.InternshipMonths, this.IsPaid)
+            {
+                EndDate = this.EndDate  
+            };
+        }
     }
 }

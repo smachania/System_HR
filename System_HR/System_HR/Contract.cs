@@ -12,7 +12,7 @@ namespace System_hr.System_HR
     [JsonDerivedType(typeof(EmployeeContract), typeDiscriminator: "emp")]
     [JsonDerivedType(typeof(InternshipContract), typeDiscriminator: "intern")]
 
-    public abstract class Contract
+    public abstract class Contract : ICloneable
     {
         DateTime startDate;
         DateTime endDate;
@@ -33,6 +33,8 @@ namespace System_hr.System_HR
 
         public abstract decimal CalculateSalary();
 
+        public abstract object Clone();
+
         public virtual string GetContractType()
         {
             return "Generic Contract";
@@ -45,6 +47,14 @@ namespace System_hr.System_HR
         public override string ToString()
         {
             return $"{GetContractType()}";
+        }
+
+
+
+        //metoda potrzebna do symulacji podwyżki 
+        public void IncreaseSalary(decimal percentage)
+        {
+            BaseSalary *= (1 + percentage / 100);
         }
     }
 }

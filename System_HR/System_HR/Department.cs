@@ -74,5 +74,33 @@ namespace System_hr
             }
             return sb.ToString();
         }
+
+
+
+        public void SortEmployees()
+        {
+            Employees.Sort();
+        }
+        public void ShowEmployees()
+        {
+            foreach (var emp in Employees)
+            {
+                Console.WriteLine(emp.ToString());
+            }
+        }
+
+
+        //Metoda do przeprowadzania symulacji podwyżki o podany procent
+        public decimal SimulationSalaryRaise(decimal percentage)
+        {
+            List<Employee> clones = this.Employees.Select(e => (Employee)e.Clone()).ToList();
+
+            foreach (var clone in clones)
+            {
+                clone.Contract?.IncreaseSalary(percentage);
+            }
+            return clones.Sum(c => c.Contract?.CalculateSalary() ?? 0);
+        }
+
     }
 }
