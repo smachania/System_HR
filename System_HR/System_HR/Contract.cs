@@ -39,5 +39,13 @@ namespace System_hr.System_HR
         {
             return $"{GetContractType()}";
         }
+
+
+
+        //metoda potrzebna do symulacji podwyżki 
+        public void IncreaseSalary(decimal percentage)
+        {
+            BaseSalary *= (1 + percentage / 100);
+        }
     }
 }

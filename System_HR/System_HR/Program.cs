@@ -6,6 +6,8 @@ internal class Program
     private static void Main(string[] args)
     {
         EmployeeTest();
+        SurnameSort();
+        SalaryRaise_Test();
     }
     static void EmployeeTest()
     {
@@ -55,4 +57,51 @@ internal class Program
         Console.WriteLine($"Salary of 3 employee: {e3.Contract.CalculateSalary()}");
 
     }
+
+
+
+    static void SurnameSort()
+    {
+        Console.WriteLine("\n-------------------------------");
+        Console.WriteLine("\nSortowanie listy pracownikow");
+        Department d1 = new("IT");
+        d1.AddEmployee(new Employee("Robert", "Lewandowski", EnumPlec.M, "82010112345", new DateTime(2015, 5, 10)));
+        d1.AddEmployee(new Employee("Anna", "Zielińska", EnumPlec.K, "88051255667", new DateTime(2018, 3, 20)));
+        d1.AddEmployee(new Employee("Maria", "Mazur", EnumPlec.K, "03251211223", new DateTime(2023, 12, 01)));
+        d1.AddEmployee(new Employee("Mariusz", "Lewandowski", EnumPlec.M, "82010112345", new DateTime(2015, 5, 10)));
+
+        Console.WriteLine("--- Przed sortowaniem: ---");
+        d1.ShowEmployees();
+
+        d1.SortEmployees();
+
+        Console.WriteLine("\n--- Po sortowaniu ---");
+        d1.ShowEmployees();
+    }
+
+
+    static void SalaryRaise_Test()
+    {
+        Console.WriteLine("\n-------------------------------");
+        Console.WriteLine("\nTestowanie symulacji podwyżki");
+
+        Employee e1 = new("Robert", "Lewandowski", EnumPlec.M, "82010112345", new DateTime(2015, 5, 10));
+        Employee e2 = new("Anna", "Zielińska", EnumPlec.K, "88051255667", new DateTime(2018, 3, 20));
+        Employee e3 = new("Maria", "Mazur", EnumPlec.K, "03251211223", new DateTime(2023, 12, 01));
+
+        e1.ChangeContract(new EmployeeContract(new DateTime(2024, 1, 1), 9000m, 2000m));
+        e2.ChangeContract(new EmployeeContract(new DateTime(2024, 1, 1), 6000m));
+        e3.ChangeContract(new InternshipContract(new DateTime(2023, 12, 1), "Politechnika", 3, true));
+
+        Department d1 = new Department("IT");
+        d1.AddEmployee(e1);
+        d1.AddEmployee(e2);
+        d1.AddEmployee(e3);
+        d1.SetManager(e2);
+
+        Console.WriteLine($"Koszt działu przed podwyżką: {d1.TotalDepartmentSalary()} zł");
+
+        Console.WriteLine($"Koszt działu po symulacji 10% podwyżki: {d1.SimulationSalaryRaise(10)} zł");
+    }
+
 }
