@@ -65,16 +65,6 @@ internal class Program
         comp.SaveToJSON("company.json");
 
     }
-    static void ReadFileTest()
-    {
-        string path = "company.json";
-        Company loadedCompany = Company.ReadFromJson(path);
-        Console.WriteLine($"Name of the company: {loadedCompany.Name}");
-        Console.WriteLine($"Number of departments: {loadedCompany.Departments.Count}");
-        string check = loadedCompany.GetTotalCostsMadeByDepartment();
-        Console.WriteLine(check);
-    }
-
 
 
     static void SurnameSort()
@@ -119,6 +109,18 @@ internal class Program
         Console.WriteLine($"Koszt działu przed podwyżką: {d1.TotalDepartmentSalary()} zł");
 
         Console.WriteLine($"Koszt działu po symulacji 10% podwyżki: {d1.SimulationSalaryRaise(10)} zł");
+        Console.WriteLine($"\n-----------------------------");
+    }
+
+
+    static void ReadFileTest()
+    {
+        string path = "company.json";
+        Company loadedCompany = Company.ReadFromJson(path);
+        Console.WriteLine($"Name of the company: {loadedCompany.Name}");
+        Console.WriteLine($"Number of departments: {loadedCompany.Departments.Count}");
+        string check = loadedCompany.GetTotalCostsMadeByDepartment();
+        Console.WriteLine(check);
     }
 
 }
