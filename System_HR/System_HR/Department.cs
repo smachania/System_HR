@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System_hr.System_HR;
 
 namespace System_hr
 {
-    class Department
+    public class Department
     {
-        string name;
-        Employee manager;
-        List<Employee> employees;
 
+        [JsonInclude]
         public string Name { get; private set; }
+        [JsonInclude]
         public Employee Manager { get; private set; }
-        public List<Employee> Employess { get; }
+        [JsonInclude]
+        public List<Employee> Employees { get; private set; }
 
         public Department(string name)
         {
             this.Name = name;
-            employees = new List<Employee>();
+            Employees = new List<Employee>();
         }
         public void AddEmployee(Employee emp)
         {
             if (emp is null) return;
-            foreach(var e in employees)
+            foreach(var e in Employees)
             {
                 if (e.Equals(emp)) //wykorzystanie funkcji Equals
                 {
                     return;
                 }
             }
-            employees.Add(emp);
+            Employees.Add(emp);
         }
         public void SetManager(Employee manager)
         {
@@ -48,7 +49,7 @@ namespace System_hr
         public bool RemoveEmployee(Employee emp)
         {
             if (emp is null) return false;
-            bool removed = employees.Remove(emp);
+            bool removed = Employees.Remove(emp);
             if(Manager!= null && Manager.Equals(emp))
             {
                 Manager = null;
@@ -57,17 +58,17 @@ namespace System_hr
         }
         public int NumberOfEmployeesByDepart()
         {
-            return employees.Count();
+            return Employees.Count();
         }
         public decimal TotalDepartmentSalary()
         {
-            return (decimal)employees.Sum(e => e.Contract.CalculateSalary());
+            return (decimal)Employees.Sum(e => e.Contract.CalculateSalary());
         }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"Department name: {Name} | Employees Number: {NumberOfEmployeesByDepart()} | Total Department Salary: {TotalDepartmentSalary()}");
-            foreach(var employ in employees)
+            foreach(var employ in Employees)
             {
                 sb.AppendLine(employ.ToString());
             }
@@ -78,11 +79,11 @@ namespace System_hr
 
         public void SortEmployees()
         {
-            employees.Sort();
+            Employees.Sort();
         }
         public void ShowEmployees()
         {
-            foreach (var emp in employees)
+            foreach (var emp in Employees)
             {
                 Console.WriteLine(emp.ToString());
             }
@@ -92,7 +93,7 @@ namespace System_hr
         //Metoda do przeprowadzania symulacji podwyżki o podany procent
         public decimal SimulationSalaryRaise(decimal percentage)
         {
-            List<Employee> clones = this.employees.Select(e => (Employee)e.Clone()).ToList();
+            List<Employee> clones = this.Employees.Select(e => (Employee)e.Clone()).ToList();
 
             foreach (var clone in clones)
             {
