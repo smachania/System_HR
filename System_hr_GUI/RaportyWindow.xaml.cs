@@ -21,5 +21,10 @@ namespace System_hr_GUI
         {
             InitializeComponent();
         }
+
+        private void BtnEksportuj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

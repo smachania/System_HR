@@ -11,26 +11,56 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="LblPracownik" Grid.Row="0" FontSize="15" Margin="0,0,0,20"/>
-
-        <GroupBox Grid.Row="1" Header="Limit" Margin="0,0,0,20" Padding="10">
-            <TextBlock x:Name="LblDostepneDni" FontSize="15"/>
-        </GroupBox>
-
-        <StackPanel Grid.Row="2">
-            <TextBlock Text="Liczba dni:" FontSize="15"/>
-            <TextBox x:Name="TxtDniUrlopu" Height="25"/>
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <TextBlock x:Name="TxtPracownikDane" FontSize="16" FontWeight="Bold"/>
+            <Separator Margin="0,5"/>
         </StackPanel>
 
-        <TextBlock x:Name="LblBlad" Grid.Row="3" Foreground="Red" FontSize="15"/>
+        <GroupBox Grid.Row="1" Header="Stan urlopu" Margin="0,0,0,15" Padding="10">
+            <UniformGrid Columns="2">
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Pozostało dni:"/>
+                    <TextBlock x:Name="LblPozostalo" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Text="Wykorzystano:"/>
+                    <TextBlock x:Name="LblWykorzystano" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+            </UniformGrid>
+        </GroupBox>
 
-        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="BtnZlozWniosek" Content="Zatrudnij" Width="100" Height="30" Margin="20" Click="BtnZlozWniosek_Click"/>
-            <Button x:Name="BtnZamknij" Content="Zamknij" Width="100" Height="30" Margin="20" IsCancel="True" Click="BtnZamknij_Click"/>
+        <GroupBox Grid.Row="2" Header="Termin urlopu" Padding="15">
+            <StackPanel>
+                <Grid Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Od:" VerticalAlignment="Center" Width="30"/>
+                    <DatePicker x:Name="DpStart" Grid.Column="1"/>
+                </Grid>
+
+                <Grid Margin="0,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Do:" VerticalAlignment="Center" Width="30"/>
+                    <DatePicker x:Name="DpEnd" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+        </GroupBox>
+
+        <TextBlock Grid.Row="4" x:Name="LblBladUrlop" Foreground="Red" Margin="0,5" TextWrapping="Wrap" FontSize="15"/>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button x:Name="BtnAkceptuj" Content="Akceptuj" Width="100" Height="30" Margin="10" Click="BtnAkceptuj_Click"/>
+            <Button x:Name="BtnZamknij" Content="Zamknij" Width="100" Height="30" Margin="10" IsCancel="True" Click="BtnZamknij_Click"/>
         </StackPanel>
     </Grid>
 </Window>

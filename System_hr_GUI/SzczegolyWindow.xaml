@@ -18,13 +18,22 @@
                     <GroupBox Header="Informacje podstawowe" Padding="10">
                         <StackPanel>
                             <TextBlock Text="Imię i Nazwisko:"/>
-                            <TextBlock x:Name="LblPelneNazwisko" FontSize="15" Margin="0,0,0,20"/>
+                            <TextBlock x:Name="LblPelneNazwisko" FontSize="15" Margin="0,0,0,15" FontWeight="Bold"/>
+
+                            <TextBlock Text="PESEL:"/>
+                            <TextBlock x:Name="LblPesel" Margin="0,0,0,15" FontWeight="Bold"/>
+
+                            <TextBlock Text="Dział:"/>
+                            <TextBlock x:Name="LblDzialSzczegoly" Margin="0,0,0,15" />
 
                             <TextBlock Text="Płeć:"/>
-                            <TextBlock x:Name="LblPlec" Margin="0,0,0,20"/>
+                            <TextBlock x:Name="LblPlec" Margin="0,0,0,15"/>
+
+                            <TextBlock Text="Data zatrudnienia:"/>
+                            <TextBlock x:Name="LblDataZatrudnienia" Margin="0,0,0,15" FontWeight="Bold"/>
 
                             <TextBlock Text="Status zatrudnienia:"/>
-                            <TextBlock x:Name="LblStatus"/>
+                            <TextBlock x:Name="LblStatus" Margin="0,0,0,5"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
@@ -32,20 +41,23 @@
 
             <TabItem Header="Umowa i Wynagrodzenie">
                 <StackPanel Margin="10">
-                    <GroupBox Header="Szczegóły kontraktu" Padding="10" Margin="0,0,0,10">
+                    <GroupBox Header="Dane płacowe" Padding="10" Margin="0,0,0,10">
                         <StackPanel>
                             <TextBlock Text="Typ umowy:"/>
-                            <TextBlock x:Name="LblTypUmowy" Margin="0,0,0,20"/>
+                            <TextBlock x:Name="LblTypUmowy" Margin="0,0,0,15" FontWeight="Bold"/>
 
-                            <TextBlock Text="Parametry:"/>
-                            <TextBlock x:Name="LblSzczegolyFinansowe" Margin="0,0,0,20"/>
+                            <TextBlock Text="Wynagrodzenie Netto:"/>
+                            <TextBlock x:Name="LblNetto" Margin="0,0,0,15" FontWeight="Bold"/>
+
+                            <TextBlock Text="Wynagrodzenie Brutto:"/>
+                            <TextBlock x:Name="LblBrutto" FontWeight="Bold"/>
                         </StackPanel>
                     </GroupBox>
 
-                    <GroupBox Header="Podsumowanie finansowe" Padding="10">
+                    <GroupBox Header="Podsumowanie" Padding="10">
                         <StackPanel>
-                            <TextBlock Text="Wynagrodzenie końcowe:"/>
-                            <TextBlock x:Name="LblWyliczonaWyplata" FontSize="20" Foreground="Green"/>
+                            <TextBlock Text="Do wypłaty końcowej:"/>
+                            <TextBlock x:Name="LblWyliczonaWyplata" FontSize="20" FontWeight="Bold"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>

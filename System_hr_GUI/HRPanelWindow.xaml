@@ -14,21 +14,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Menu Grid.Row="0">
-            <MenuItem Header="Plik">
-                <MenuItem Header="Wczytaj bazę" Click="MenuWczytaj_Click"/>
-                <MenuItem Header="Zapisz bazę" Click="MenuZapisz_Click"/>
-                <Separator/>
-                <MenuItem Header="Wyjście" Click="MenuWyjscie_Click"/>
-            </MenuItem>
-            <MenuItem Header="Analiza" Click="BtnRaporty_Click"/>
-        </Menu>
 
         <TextBlock Grid.Row="1" Text="REJESTR PRACOWNIKÓW" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
 
         <DataGrid x:Name="DgPracownicy" Grid.Row="2" Margin="20" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="PESEL" Binding="{Binding Pesel}" Width="100"/>
                 <DataGridTextColumn Header="Imię" Binding="{Binding Imie}" Width="*"/>
                 <DataGridTextColumn Header="Nazwisko" Binding="{Binding Nazwisko}" Width="*"/>
                 <DataGridTextColumn Header="Dział" Binding="{Binding Dzial}" Width="150"/>
@@ -37,11 +29,13 @@
         </DataGrid>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
-            <Button x:Name="BtnDodaj" Content="Zatrudnij" Width="100" Height="30" Margin="10" Click="BtnDodaj_Click"/>
-            <Button x:Name="BtnEdytuj" Content="Edytuj" Width="100" Height="30" Margin="10" Click="BtnEdytuj_Click"/>
-            <Button x:Name="BtnUrlop" Content="Urlop" Width="100" Height="30" Margin="10" Click="BtnUrlop_Click"/>
-            <Button x:Name="BtnZwolnij" Content="Zwolnij" Width="100" Height="30" Margin="10" Click="BtnZwolnij_Click"/>
-            <Button x:Name="BtnSzczegoly" Content="Szczegóły" Width="100" Height="30" Margin="10" Click="BtnSzczegoly_Click"/>
+            <Button x:Name="BtnWczytaj" Content="Baza danych" Width="100" Height="30" Margin="5" Click="MenuWczytaj_Click"/>
+            <Button x:Name="BtnDodaj" Content="Zatrudnij" Width="100" Height="30" Margin="5" Click="BtnDodaj_Click"/>
+            <Button x:Name="BtnEdytuj" Content="Edytuj" Width="100" Height="30" Margin="5" Click="BtnEdytuj_Click"/>
+            <Button x:Name="BtnUrlop" Content="Urlop" Width="100" Height="30" Margin="5" Click="BtnUrlop_Click"/>
+            <Button x:Name="BtnZwolnij" Content="Zwolnij" Width="100" Height="30" Margin="5" Click="BtnZwolnij_Click"/>
+            <Button x:Name="BtnSzczegoly" Content="Szczegóły" Width="100" Height="30" Margin="5" Click="BtnSzczegoly_Click"/>
+            <Button x:Name="BtnAnaliza" Content="Analiza" Width="100" Height="30" Margin="5" Click="BtnRaporty_Click"/>
         </StackPanel>
     </Grid>
 </Window>
