@@ -94,8 +94,8 @@ namespace System_hr.System_HR
         }
 
 
-        //sortowanie po nazwisku
-        public int CompareTo(Employee other)
+
+        public int CompareTo(Employee? other)
         {
             if(other == null) return 1;
             int surnamecompare = Surname.CompareTo(other.Surname);
@@ -107,10 +107,8 @@ namespace System_hr.System_HR
 
         public object Clone()
         {
-            // MemberwiseClone kopiuje proste typy (string, int, bool)
             Employee clone = (Employee)this.MemberwiseClone();
 
-            //Kotrtakt musi zostać sklonowany "ręcznie"
             if (this.Contract != null)
             {
                 clone.Contract = (Contract)this.Contract.Clone();

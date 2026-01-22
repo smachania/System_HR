@@ -89,8 +89,6 @@ namespace System_hr
             }
         }
 
-
-        //Metoda do przeprowadzania symulacji podwyżki o podany procent
         public decimal SimulationSalaryRaise(decimal percentage)
         {
             List<Employee> clones = this.Employees.Select(e => (Employee)e.Clone()).ToList();

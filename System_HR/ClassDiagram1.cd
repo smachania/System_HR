@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="System_hr.System_HR.InternshipContract">
+    <Position X="10.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAADAAAAAAAAAAAAIQAAACAQAAAAEAAAAAABA=</HashCode>
+      <FileName>System_HR\InternshipContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_hr.System_HR.EmployeeContract">
+    <Position X="8.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAABAAABAAAAAAAAACAAAQAgAAAAAAAAAAAAQAABA=</HashCode>
+      <FileName>System_HR\EmployeeContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System_hr.System_HR.Employee" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAASAAAAEAAAAAQEEAAAAAQABCAACAEgAAAMAAAAABA=</HashCode>
+      <FileName>System_HR\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Contract" />
+      <Property Name="Plec" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System_hr.Department">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAEAAAAABAAAEAACAAEQFKAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>System_HR\Department.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Employees" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="System_hr.System_HR.Contract">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>QAAQAAAAABAAAAAEACAACAAwAAgAAAAAAAAAAEAAAFA=</HashCode>
+      <FileName>System_HR\Contract.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System_hr.System_HR.Company">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAACAAIAQAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>System_HR\Company.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Departments" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="System_hr.System_HR.B2BContract">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABACCAAAAAAAIEAQAAAAAAABAAAAIQAAABA=</HashCode>
+      <FileName>System_HR\B2BContract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="System_hr.System_HR.EnumPlec" Collapsed="true">
+    <Position X="4" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAAA=</HashCode>
+      <FileName>System_HR\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
