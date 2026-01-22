@@ -1,0 +1,251 @@
+{
+  "Name": "IT Company",
+  "Departments": [
+    {
+      "Name": "Software development",
+      "Manager": {
+        "Id": 1,
+        "Name": "Robert",
+        "Surname": "Lewandowski",
+        "Plec": 1,
+        "Pesel": "82010112345",
+        "HireDate": "2015-05-10T00:00:00",
+        "IsActive": true,
+        "Contract": {
+          "$type": "b2b",
+          "HourlyRate": 200,
+          "MonthlyHours": 160,
+          "VatRate": 0,
+          "StartDate": "2024-01-01T00:00:00",
+          "EndDate": null,
+          "BaseSalary": 32000
+        }
+      },
+      "Employees": [
+        {
+          "Id": 1,
+          "Name": "Robert",
+          "Surname": "Lewandowski",
+          "Plec": 1,
+          "Pesel": "82010112345",
+          "HireDate": "2015-05-10T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "b2b",
+            "HourlyRate": 200,
+            "MonthlyHours": 160,
+            "VatRate": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 32000
+          }
+        },
+        {
+          "Id": 2,
+          "Name": "Anna",
+          "Surname": "Zieli\u0144ska",
+          "Plec": 0,
+          "Pesel": "88051255667",
+          "HireDate": "2018-03-20T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "b2b",
+            "HourlyRate": 160,
+            "MonthlyHours": 160,
+            "VatRate": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 25600
+          }
+        },
+        {
+          "Id": 3,
+          "Name": "Maria",
+          "Surname": "Mazur",
+          "Plec": 0,
+          "Pesel": "03251211223",
+          "HireDate": "2023-12-01T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "intern",
+            "UniversityName": "Politechnika",
+            "InternshipMonths": 3,
+            "IsPaid": true,
+            "StartDate": "2023-12-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 1500
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Marketing \u0026 Sales",
+      "Manager": {
+        "Id": 4,
+        "Name": "Karolina",
+        "Surname": "Krawczyk",
+        "Plec": 0,
+        "Pesel": "90060677889",
+        "HireDate": "2019-01-15T00:00:00",
+        "IsActive": true,
+        "Contract": {
+          "$type": "emp",
+          "Bonus": 2000,
+          "OvertimeHours": 0,
+          "StartDate": "2024-01-01T00:00:00",
+          "EndDate": null,
+          "BaseSalary": 9000
+        }
+      },
+      "Employees": [
+        {
+          "Id": 4,
+          "Name": "Karolina",
+          "Surname": "Krawczyk",
+          "Plec": 0,
+          "Pesel": "90060677889",
+          "HireDate": "2019-01-15T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "emp",
+            "Bonus": 2000,
+            "OvertimeHours": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 9000
+          }
+        },
+        {
+          "Id": 5,
+          "Name": "Julia",
+          "Surname": "Nowakowska",
+          "Plec": 0,
+          "Pesel": "95022833441",
+          "HireDate": "2021-08-10T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "emp",
+            "Bonus": 500,
+            "OvertimeHours": 10,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 6000
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Administration",
+      "Manager": {
+        "Id": 6,
+        "Name": "Barbara",
+        "Surname": "Jankowska",
+        "Plec": 0,
+        "Pesel": "75081522334",
+        "HireDate": "2010-04-12T00:00:00",
+        "IsActive": true,
+        "Contract": {
+          "$type": "emp",
+          "Bonus": 0,
+          "OvertimeHours": 0,
+          "StartDate": "2024-01-01T00:00:00",
+          "EndDate": null,
+          "BaseSalary": 11000
+        }
+      },
+      "Employees": [
+        {
+          "Id": 6,
+          "Name": "Barbara",
+          "Surname": "Jankowska",
+          "Plec": 0,
+          "Pesel": "75081522334",
+          "HireDate": "2010-04-12T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "emp",
+            "Bonus": 0,
+            "OvertimeHours": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 11000
+          }
+        },
+        {
+          "Id": 7,
+          "Name": "Jan",
+          "Surname": "W\u00F3jcik",
+          "Plec": 1,
+          "Pesel": "81041266778",
+          "HireDate": "2016-02-28T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "b2b",
+            "HourlyRate": 100,
+            "MonthlyHours": 160,
+            "VatRate": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 16000
+          }
+        }
+      ]
+    },
+    {
+      "Name": "Customer Service",
+      "Manager": {
+        "Id": 8,
+        "Name": "Micha\u0142",
+        "Surname": "Wi\u015Bniewski",
+        "Plec": 1,
+        "Pesel": "89030311223",
+        "HireDate": "2018-11-12T00:00:00",
+        "IsActive": true,
+        "Contract": {
+          "$type": "emp",
+          "Bonus": 0,
+          "OvertimeHours": 0,
+          "StartDate": "2024-01-01T00:00:00",
+          "EndDate": null,
+          "BaseSalary": 7500
+        }
+      },
+      "Employees": [
+        {
+          "Id": 8,
+          "Name": "Micha\u0142",
+          "Surname": "Wi\u015Bniewski",
+          "Plec": 1,
+          "Pesel": "89030311223",
+          "HireDate": "2018-11-12T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "emp",
+            "Bonus": 0,
+            "OvertimeHours": 0,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 7500
+          }
+        },
+        {
+          "Id": 9,
+          "Name": "Adam",
+          "Surname": "Dudek",
+          "Plec": 1,
+          "Pesel": "96070755443",
+          "HireDate": "2022-05-20T00:00:00",
+          "IsActive": true,
+          "Contract": {
+            "$type": "emp",
+            "Bonus": 200,
+            "OvertimeHours": 25,
+            "StartDate": "2024-01-01T00:00:00",
+            "EndDate": null,
+            "BaseSalary": 4500
+          }
+        }
+      ]
+    }
+  ]
+}
