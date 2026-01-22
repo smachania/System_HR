@@ -21,5 +21,15 @@ namespace System_hr_GUI
         {
             InitializeComponent();
         }
+
+        private void BtnAkceptuj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnZamknij_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

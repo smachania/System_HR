@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:System_hr_GUI"
         mc:Ignorable="d"
-        Title="Zatrudnij Pracownika" Height="550" Width="500" WindowStartupLocation="CenterOwner">
+        Title="Zatrudnij Pracownika" Height="618" Width="500" WindowStartupLocation="CenterOwner">
 <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> <RowDefinition Height="Auto"/> </Grid.RowDefinitions>

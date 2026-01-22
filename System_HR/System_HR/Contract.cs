@@ -51,7 +51,6 @@ namespace System_hr.System_HR
 
 
 
-        //metoda potrzebna do symulacji podwyżki 
         public void IncreaseSalary(decimal percentage)
         {
             BaseSalary *= (1 + percentage / 100);

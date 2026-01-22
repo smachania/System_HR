@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System_hr.System_HR;
 
 namespace System_hr_GUI
 {
@@ -20,6 +21,21 @@ namespace System_hr_GUI
         public SzczegolyWindow()
         {
             InitializeComponent();
+        }
+        private Employee _pracownik;
+
+        public SzczegolyWindow(Employee pracownik) : this()
+        {
+            _pracownik = pracownik;
+
+            LblPelneNazwisko.Text = $"{pracownik.Name} {pracownik.Surname}";
+            LblPesel.Text = pracownik.Pesel;
+            LblStatus.Text = pracownik.IsActive ? "Aktywny" : "Zwolniony";
+        }
+
+        private void BtnZamknij_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

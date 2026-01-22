@@ -29,5 +29,15 @@ namespace System_hr_GUI
         {
             lblError.Text = "";
         }
+
+        private void BtnZapisz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnZamknij_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -26,5 +26,15 @@ namespace System_hr_GUI
         {
 
         }
+
+        private void CbWyborDzialu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnZamknij_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
