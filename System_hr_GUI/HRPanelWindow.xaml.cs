@@ -61,7 +61,11 @@ namespace System_hr_GUI
                 employees.Remove(wybrany);
                 DgPracownicy.ItemsSource = null;
                 DgPracownicy.ItemsSource = employees;
-                MessageBox.Show($"Pracownik {wybrany.Surname} został usunięty.");
+                MessageBox.Show($"Pracownik {wybrany.Name} {wybrany.Surname} został usunięty.");
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz pracownika z listy!", "Brak zaznaczenia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         private void BtnSzczegoly_Click(object sender, RoutedEventArgs e) 
@@ -89,7 +93,7 @@ namespace System_hr_GUI
             }
             else
             {
-                MessageBox.Show("Najpierw wybierz pracownika z listy!");
+                MessageBox.Show("Najpierw wybierz pracownika z listy!", "Brak zaznaczenia", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
