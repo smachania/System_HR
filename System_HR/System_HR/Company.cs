@@ -33,8 +33,8 @@ namespace System_hr.System_HR
         {
             if (!File.Exists(fname)) { throw new FileNotFoundException("The file does not exist."); }
             string jsonString = File.ReadAllText(fname);
-            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true }; 
-            return JsonSerializer.Deserialize<Company>(jsonString);
+            var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            return JsonSerializer.Deserialize<Company>(jsonString,options);
         }
         public string GetTotalCostsMadeByDepartment()
         {

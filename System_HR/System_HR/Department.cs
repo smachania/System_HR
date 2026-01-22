@@ -89,6 +89,8 @@ namespace System_hr
             }
         }
 
+
+        
         public decimal SimulationSalaryRaise(decimal percentage)
         {
             List<Employee> clones = this.Employees.Select(e => (Employee)e.Clone()).ToList();

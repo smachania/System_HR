@@ -8,7 +8,7 @@ namespace System_hr.System_HR
 	{
         decimal hourlyRate;
         int monthlyHours;
-        decimal vatRate = 0.23m; 
+        decimal vatRate = 0.23m;
 
         [JsonInclude]
         public decimal HourlyRate { get; private set; }
@@ -27,7 +27,7 @@ namespace System_hr.System_HR
         }
         
         
-        public override decimal CalculateSalary() 
+        public override decimal CalculateSalary()
         {
             return HourlyRate * MonthlyHours;
         }
@@ -39,7 +39,7 @@ namespace System_hr.System_HR
         }
         
 
-        public decimal CalculateTotalSalary()  
+        public decimal CalculateTotalSalary()
         {
             return CalculateSalary() + CalculateVat();
         }

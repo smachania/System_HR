@@ -1,0 +1,15 @@
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.sourcelink.json
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\bin\Debug\net8.0\System_hr.exe
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\bin\Debug\net8.0\System_hr.deps.json
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\bin\Debug\net8.0\System_hr.runtimeconfig.json
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\bin\Debug\net8.0\System_hr.dll
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\bin\Debug\net8.0\System_hr.pdb
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.dll
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\refint\System_hr.dll
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.pdb
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.genruntimeconfig.cache
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\ref\System_hr.dll
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.Properties.Resources.resources
+C:\Users\admin\Desktop\HR_system_projekt\System_HR\obj\Debug\net8.0\System_hr.csproj.GenerateResource.cache

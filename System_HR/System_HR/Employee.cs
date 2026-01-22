@@ -11,7 +11,7 @@ using System.Text.Json.Serialization;
 
 namespace System_hr.System_HR
 {
-    public class WrongPeselException : Exception
+    public class WrongPeselException : Exception 
     {
         public WrongPeselException() : base() { }
         public WrongPeselException(string message) : base(message) { }
@@ -20,16 +20,16 @@ namespace System_hr.System_HR
     public class Employee : IIdentifiable, IComparable<Employee>, ICloneable
     {
         string pesel;
-
+ 
         static int counter;
         [JsonInclude]
-        public int Id { get; private set; }
+        public int Id { get; private set; } 
         [JsonInclude]
-        public string Name { get; private set; }
+        public string Name { get;  set; }
         [JsonInclude]
-        public string Surname { get; private set; }
+        public string Surname { get; set; }
         [JsonInclude]
-        public EnumPlec Plec { get; private set; }
+        public EnumPlec Plec { get;  set; }
         [JsonInclude]
         public string Pesel
         {
@@ -40,7 +40,7 @@ namespace System_hr.System_HR
                 {
                     throw new WrongPeselException("Pesel nie może być pusty"); 
                 }
-                Regex r = new Regex(@"^\d{11}$"); 
+                Regex r = new Regex(@"^\d{11}$");
                 if (r.IsMatch(value))
                 {
                     pesel = value;
@@ -85,7 +85,7 @@ namespace System_hr.System_HR
             Contract = newContract;
         }
 
-
+      
         public override string ToString()
         {
             string status = IsActive ? "Aktywny" : "Zwolniony";
@@ -94,8 +94,8 @@ namespace System_hr.System_HR
         }
 
 
-
-        public int CompareTo(Employee? other)
+   
+        public int CompareTo(Employee other)
         {
             if(other == null) return 1;
             int surnamecompare = Surname.CompareTo(other.Surname);
@@ -107,8 +107,10 @@ namespace System_hr.System_HR
 
         public object Clone()
         {
+      
             Employee clone = (Employee)this.MemberwiseClone();
 
+      
             if (this.Contract != null)
             {
                 clone.Contract = (Contract)this.Contract.Clone();
