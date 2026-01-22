@@ -29,7 +29,7 @@ namespace System_hr
             if (emp is null) return;
             foreach(var e in Employees)
             {
-                if (e.Equals(emp)) //wykorzystanie funkcji Equals
+                if (e.Equals(emp))
                 {
                     return;
                 }
@@ -45,7 +45,7 @@ namespace System_hr
                 AddEmployee(manager);
             }
         }
-        //wykorzystanie metody Equals z klasy Empolyee
+        
         public bool RemoveEmployee(Employee emp)
         {
             if (emp is null) return false;

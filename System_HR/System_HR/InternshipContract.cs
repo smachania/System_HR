@@ -19,7 +19,7 @@ namespace System_hr.System_HR
        
         public InternshipContract(DateTime startDate, string universityName, 
             int internshipMonths, bool isPaid)
-            : base(startDate, isPaid ? 1500m : 0m) // Przykładowa stawka bazowa dla płatnych staży
+            : base(startDate, isPaid ? 1500m : 0m) 
         {
             UniversityName = universityName;
             InternshipMonths = internshipMonths;
