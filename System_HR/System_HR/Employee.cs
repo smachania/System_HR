@@ -11,7 +11,7 @@ using System.Text.Json.Serialization;
 
 namespace System_hr.System_HR
 {
-    public class WrongPeselException : Exception //własny wyjątek
+    public class WrongPeselException : Exception 
     {
         public WrongPeselException() : base() { }
         public WrongPeselException(string message) : base(message) { }
@@ -20,27 +20,27 @@ namespace System_hr.System_HR
     public class Employee : IIdentifiable, IComparable<Employee>, ICloneable
     {
         string pesel;
-
+ 
         static int counter;
         [JsonInclude]
-        public int Id { get; private set; } //zmiana na private, aby nikt z zewnatrz nie mogl tego zmienic
+        public int Id { get; private set; } 
         [JsonInclude]
-        public string Name { get; private set; }
+        public string Name { get;  set; }
         [JsonInclude]
-        public string Surname { get; private set; }
+        public string Surname { get; set; }
         [JsonInclude]
-        public EnumPlec Plec { get; private set; }
+        public EnumPlec Plec { get;  set; }
         [JsonInclude]
-        public string Pesel //hermetyzacja
+        public string Pesel
         {
             get => pesel;
             set
             {
-                if (string.IsNullOrWhiteSpace(value))//walidacja ull
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new WrongPeselException("Pesel nie może być pusty"); //dzięki temu mamy wieększą walidację oraz czytelniejsze komunikaty
+                    throw new WrongPeselException("Pesel nie może być pusty"); 
                 }
-                Regex r = new Regex(@"^\d{11}$"); // przy pomocy regex sprawdzamy poprawność wpisanego peselu
+                Regex r = new Regex(@"^\d{11}$");
                 if (r.IsMatch(value))
                 {
                     pesel = value;
@@ -62,7 +62,7 @@ namespace System_hr.System_HR
         {
             counter = 1;
         }
-        public Employee(string name, string surname, EnumPlec plec, string pesel, DateTime hireDate)// z parametrów wyrzucam id i isactive, dlatego, że będzie się to automatycznie tworzyć
+        public Employee(string name, string surname, EnumPlec plec, string pesel, DateTime hireDate)
         {
             Id = counter++;
             Name = name;
@@ -70,7 +70,7 @@ namespace System_hr.System_HR
             Plec = plec;
             Pesel = pesel;
             HireDate = hireDate;
-            IsActive = true; //po przyjęciu nowego pracownika zakłamy, że jest aktywny
+            IsActive = true; 
         }
 
         public void Terminate()
@@ -80,12 +80,12 @@ namespace System_hr.System_HR
         }
         public void ChangeContract(Contract newContract)
         {
-            if (newContract == null) return; // jeśli ktoś prześle null to nic nie rób
-            Contract?.EndContract(DateTime.Now); //sprawdzamy czy obecnie istnieje jakis kontrakt i jesli tak to go konczymy
+            if (newContract == null) return; 
+            Contract?.EndContract(DateTime.Now); 
             Contract = newContract;
         }
 
-        //wyświetlanie danych pracownika w konsoli
+      
         public override string ToString()
         {
             string status = IsActive ? "Aktywny" : "Zwolniony";
@@ -94,7 +94,7 @@ namespace System_hr.System_HR
         }
 
 
-        //sortowanie po nazwisku
+   
         public int CompareTo(Employee other)
         {
             if(other == null) return 1;
@@ -107,10 +107,10 @@ namespace System_hr.System_HR
 
         public object Clone()
         {
-            // MemberwiseClone kopiuje proste typy (string, int, bool)
+      
             Employee clone = (Employee)this.MemberwiseClone();
 
-            //Kotrtakt musi zostać sklonowany "ręcznie"
+      
             if (this.Contract != null)
             {
                 clone.Contract = (Contract)this.Contract.Clone();

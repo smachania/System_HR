@@ -50,7 +50,7 @@ namespace System_hr.System_HR
         {
             return new EmployeeContract(this.StartDate, this.BaseSalary, this.Bonus, this.OvertimeHours)
             {
-                EndDate = this.EndDate                 // kopia daty zakończenia, jeśli istnieje
+                EndDate = this.EndDate              
             };
         }
     }

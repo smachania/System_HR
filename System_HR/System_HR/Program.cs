@@ -5,7 +5,7 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        //EmployeeTest();
+        EmployeeTest();
         SurnameSort();
         SalaryRaise_Test();
         ReadFileTest();
@@ -34,14 +34,13 @@ internal class Program
         e7.ChangeContract(new B2BContract(new DateTime(2024, 1, 1), 100m, 160));
         e8.ChangeContract(new EmployeeContract(new DateTime(2024, 1, 1), 7500m));
         e9.ChangeContract(new EmployeeContract(new DateTime(2024, 1, 1), 4500m, 200m, 25));
-        //Console.WriteLine(e6);
+
         Department it = new Department("Software development");
         it.SetManager(e1);
         it.AddEmployee(e2);
         it.AddEmployee(e3);
         comp.Departments.Add(it);
-        //Console.WriteLine(e2);
-        //Console.WriteLine($"Pensja netto: {e2.Contract.CalculateSalary()}");
+
         Department marketing = new Department("Marketing & Sales");
         marketing.SetManager(e4);
         marketing.AddEmployee(e5);
@@ -58,7 +57,7 @@ internal class Program
         comp.Departments.Add(services);
 
         Console.WriteLine(it);
-        Console.WriteLine($"Salary of 1 employee: {((B2BContract)e1.Contract).CalculateTotalSalary()}");//rzutowanie typów dla B2B
+        Console.WriteLine($"Salary of 1 employee: {((B2BContract)e1.Contract).CalculateTotalSalary()}");
         Console.WriteLine($"Salary of 2 employee: {((B2BContract)e2.Contract).CalculateTotalSalary()}");
         Console.WriteLine($"Salary of 3 employee: {e3.Contract.CalculateSalary()}");
 

@@ -15,55 +15,90 @@ namespace System_hr_GUI
 {
     public partial class HRPanelWindow : Window
     {
+        private Company mojaFirma;
         private List<Employee> employees = new List<Employee>();
+        private List<Department> dzialyFirmy = new List<Department>();
         public HRPanelWindow()
         {
             InitializeComponent();
-        }
+            try
+            {
+                mojaFirma = Company.ReadFromJson("company.json");
 
-        //LOGIIKI PRZYCISKOW
-        private void MenuWczytaj_Click(object sender, RoutedEventArgs e)  {  }
-        private void MenuZapisz_Click(object sender, RoutedEventArgs e) 
-        {
+                if (mojaFirma != null)
+                {
+                    dzialyFirmy = mojaFirma.Departments;
+                    foreach (var d in dzialyFirmy)
+                    {
+                        employees.AddRange(d.Employees);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Nie udało się wczytać bazy danych: " + ex.Message);
+                mojaFirma = new Company("Nowa Firma");
+                dzialyFirmy = mojaFirma.Departments;
+            }
+            DgPracownicy.ItemsSource = employees;
         }
         private void BtnDodaj_Click(object sender, RoutedEventArgs e) 
         {
-            OsobaWindow oknoDodawania = new OsobaWindow();
-            oknoDodawania.Owner = this;
-            if (oknoDodawania.ShowDialog() == true)
+            OsobaWindow okno = new OsobaWindow();
+            okno.Owner = this;
+            if (okno.ShowDialog() == true)
             {
-                employees.Add(oknoDodawania.NowyPracownik);
-                DgPracownicy.Items.Refresh();
+                Employee nowy = okno.NowyPracownik;
+                employees.Add(nowy);
+                DgPracownicy.ItemsSource = null;
+                DgPracownicy.ItemsSource = employees;
             }
         }
-        private void BtnEdytuj_Click(object sender, RoutedEventArgs e) { }
         private void BtnZwolnij_Click(object sender, RoutedEventArgs e)
         {
             if (DgPracownicy.SelectedItem is Employee wybrany)
             {
-                wybrany.Terminate();
-                DgPracownicy.Items.Refresh();
+                employees.Remove(wybrany);
+                DgPracownicy.ItemsSource = null;
+                DgPracownicy.ItemsSource = employees;
+                MessageBox.Show($"Pracownik {wybrany.Surname} został usunięty.");
             }
         }
         private void BtnSzczegoly_Click(object sender, RoutedEventArgs e) 
         {
-            if (DgPracownicy.SelectedItem is not Employee wybrany)
-                return;
-            var okno = new SzczegolyWindow(wybrany)
+            if (DgPracownicy.SelectedItem is  Employee wybrany)
             {
-                Owner = this
-            };
-            okno.ShowDialog();
+                SzczegolyWindow okno = new SzczegolyWindow(wybrany);
+                okno.Owner = this;
+                okno.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Proszę najpierw wybrać pracownika z listy, aby zobaczyć szczegóły.",
+                        "Brak zaznaczenia", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void BtnUrlop_Click(object sender, RoutedEventArgs e)
         {
-
+            if (DgPracownicy.SelectedItem is Employee wybrany)
+            {
+                UrlopWindow okno = new UrlopWindow(wybrany);
+                okno.Owner = this;
+                okno.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz pracownika z listy!");
+            }
         }
 
         private void BtnRaporty_Click(object sender, RoutedEventArgs e)
         {
-
+            Company firma = Company.ReadFromJson("company.json");
+            RaportyWindow okno = new RaportyWindow(dzialyFirmy);
+            okno.Owner = this;
+            okno.ShowDialog();
         }
     }
 }

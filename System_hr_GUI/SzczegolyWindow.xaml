@@ -23,8 +23,7 @@
                             <TextBlock Text="PESEL:"/>
                             <TextBlock x:Name="LblPesel" Margin="0,0,0,15" FontWeight="Bold"/>
 
-                            <TextBlock Text="Dział:"/>
-                            <TextBlock x:Name="LblDzialSzczegoly" Margin="0,0,0,15" />
+
 
                             <TextBlock Text="Płeć:"/>
                             <TextBlock x:Name="LblPlec" Margin="0,0,0,15"/>
